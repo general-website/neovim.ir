@@ -1,0 +1,1 @@
+import{n as e}from"./download.CC7rfkLk.js";document.getElementById(`download-config`)?.addEventListener(`click`,t=>{let n=t.currentTarget;e(n.dataset.filename??`init.lua`,n.dataset.content??``)});

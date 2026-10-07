@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://neovim.ir/sitemap-index.xml

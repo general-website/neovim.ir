@@ -1,0 +1,11 @@
+import{r as e}from"./search.BhF0JXIH.js";var t=document.getElementById(`plugin-explorer`);if(t){let n=JSON.parse(t.dataset.plugins??`[]`),r=e(n),i=document.getElementById(`plugin-search`),a=document.getElementById(`plugin-sort`),o=document.getElementById(`plugin-grid`),s=document.getElementById(`plugin-empty`),c=document.getElementById(`plugin-count`),l=`all`;function u(){let e=i.value.trim(),t=e?r.search(e).map(e=>e.item):[...n];l!==`all`&&(t=t.filter(e=>e.category===l)),a.value===`stars`?t.sort((e,t)=>(t.stars??0)-(e.stars??0)):t.sort((e,t)=>e.name.localeCompare(t.name)),c.textContent=`${t.length} Plugin`,s.classList.toggle(`hidden`,t.length>0),o.innerHTML=t.map(e=>`
+        <a href="/plugins/${e.slug}" class="rounded-lg border border-border bg-bg-elevated/40 p-4 transition hover:border-accent/50">
+          <div class="flex items-start justify-between gap-2">
+            <h2 class="font-mono text-sm font-semibold">${e.name}</h2>
+            ${e.stars?`<span class="font-mono text-xs text-fg-muted">★ ${e.stars.toLocaleString(`en`)}</span>`:``}
+          </div>
+          <p class="mt-2 line-clamp-2 text-sm text-fg-muted">${e.description}</p>
+          <div class="mt-3 flex flex-wrap gap-1">
+            ${e.tags.map(e=>`<span class="rounded bg-bg-muted px-1.5 py-0.5 font-mono text-[10px] text-fg-muted">${e}</span>`).join(``)}
+          </div>
+        </a>`).join(``)}i.addEventListener(`input`,u),a.addEventListener(`change`,u),document.querySelectorAll(`.cat-btn`).forEach(e=>{e.addEventListener(`click`,()=>{l=e.dataset.category??`all`,document.querySelectorAll(`.cat-btn`).forEach(e=>{e.classList.remove(`border-accent`,`bg-accent/10`,`text-accent`),e.classList.add(`border-border`,`text-fg-muted`)}),e.classList.add(`border-accent`,`bg-accent/10`,`text-accent`),e.classList.remove(`border-border`,`text-fg-muted`),u()})}),document.addEventListener(`keydown`,e=>{e.key===`/`&&document.activeElement?.tagName!==`INPUT`&&document.activeElement?.tagName!==`TEXTAREA`&&(e.preventDefault(),i.focus())}),u()}

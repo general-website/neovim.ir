@@ -1,0 +1,1 @@
+import{s as e}from"./storage.CUr_SR9U.js";var t=window.location.pathname.split(`/`).filter(Boolean).pop();t&&e(t);
